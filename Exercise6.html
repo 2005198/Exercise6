@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 6 - Arrays</title>
+</head>
+<body>
+
+    <h3>Enter comma-separated integers:</h3>
+    <label for="a">Factors (a): </label>
+    <input type="text" id="a"><br><br>
+
+    <label for="l">Numbers List (l): </label>
+    <input type="text" id="l"><br><br>
+
+    <button onclick="handleClick()">Press me!</button>
+
+    <script>
+        function f6(a, l) {
+            return l.filter(num => a.some(factor => num % factor === 0))
+                    .reduce((sum, num) => sum + num, 0);
+        }
+
+        function handleClick() {
+            let a = document.getElementById("a").value.split(",").map(Number);
+            let l = document.getElementById("l").value.split(",").map(Number);
+
+            let result = f6(a, l);
+            alert("Sum of multiples: " + result);
+        }
+    </script>
+
+</body>
+</html>
